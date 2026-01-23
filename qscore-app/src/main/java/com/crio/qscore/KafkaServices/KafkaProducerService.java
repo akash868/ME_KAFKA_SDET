@@ -14,7 +14,7 @@ public class KafkaProducerService {
     public void sendMessage(String key, String value) {
         System.out.printf("Sending consumer event: %s to topic: %s with key: %s%n", value, "scores", key);
         // TODO: Add Key to argument list "new ProducerRecord<>("scores", key, value);"
-        ProducerRecord<String, String> message = new ProducerRecord<>("scores", value);
+        ProducerRecord<String, String> message = new ProducerRecord<>("scores", key, value);
         kafkaTemplate.send(message);
     }
 }
